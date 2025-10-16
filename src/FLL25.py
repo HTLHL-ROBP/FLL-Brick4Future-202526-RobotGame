@@ -5,14 +5,14 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait
 from pybricks.tools import hub_menu
 
-hub = None
-robot = None
-arm1 = None
-arm2 = None
+hub: PrimeHub = None
+robot: DriveBase = None
+arm1: Motor = None
+arm2: Motor = None
 
 def _init_hub():
     """Initialize the prime hub"""
-    _hub = PrimeHub(top_side=Axis.Z,front_side=Axis.Y)
+    _hub = PrimeHub(top_side=Axis.Z, front_side=Axis.Y)
     _hub.speaker.beep()
     _hub.light.on(Color.GREEN)
     return _hub
@@ -77,69 +77,72 @@ def rotslow1(angle):
 def rotslow2(angle):
     arm2.run_angle(60, angle)
 
-
-
 def rot1stalled(speed, duty_limit = 40):
     arm1.run_until_stalled(speed, duty_limit=duty_limit)
-
  
 def rot2stalled(speed, duty_limit = 40):
     arm2.run_until_stalled(speed, duty_limit=duty_limit)
 
 init()
-speed(500,700,300,300)
 
-def test():
+speed(
+    straight_speed=500,
+    straight_acceleration=700,
+    turn_rate=300,
+    turn_acceleration=300
+)
+
+def run_1():
     straight(410)
     turn(27)
     straight(240)
     turn(-71)
     straight(220)
+
+    #schlaufe hoch heben
     rot2(-80)
     straight(-175)
     turn(-45)
     straight(62)
+
+    #links rechts schieben
     rot1(160)
     rot1(-330)
-    
+
+    #zurück fahren für roten stiehl raus ziehen
     straight(-100)
-    turn(10)
+
+    #scheibeteil zur seite
+    rot1(-80)
+    
+    #arm runter für roten stiehl
     rot1(300)
     rot2(63)
+
+    #vor zu fahren zu rotem stiehl
     straight(120)
     rot2(-65)
-
 
     rot1(-130)
 
 
-
-
-
 def main():
-    menu = ["A", "B", "C","1","2","3","4","5"]
+    menu = ["A", "B", "C"]
 
     while True:
-    # Make a menu to choose a letter. You can also use numbers.
+        # make a menu to choose a letter. You can also use numbers.
         selected = hub_menu(*menu)
 
-    # Based on the selection, run a program.
+        # based on the selection, run a program.
         if selected == "A":
-            test()
+            run_1()
+
         elif selected == "B":
             pass
+
         elif selected == "C":
             pass
-        elif selected == "1":
-            pass
-        elif selected == "2":
-            pass
-        elif selected == "3":
-            pass
-        elif selected == "4":
-            pass
-        elif selected == "5":
-            pass
+        
         else:
             pass
 
