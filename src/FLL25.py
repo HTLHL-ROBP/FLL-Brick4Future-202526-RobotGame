@@ -4,7 +4,9 @@ from pybricks.parameters import Axis, Color, Direction, Port, Stop
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait
 from pybricks.tools import hub_menu
+from pybricks import version
 
+hub = PrimeHub()
 hub: PrimeHub = None
 robot: DriveBase = None
 arm1: Motor = None
@@ -59,7 +61,7 @@ def turn(angle):
 
 def rot1(angle):
     """Turn arm1 by realtive angle. Negative angle turns counterclockwise"""
-    arm1.run_angle(200, angle)
+    arm1.run_angle(500, angle)
 
 def rot2(angle):
     """Turn arm2 by realtive angle. Negative angle turns counterclockwise"""
@@ -84,47 +86,93 @@ def rot2stalled(speed, duty_limit = 40):
     arm2.run_until_stalled(speed, duty_limit=duty_limit)
 
 init()
-
 speed(
-    straight_speed=500,
-    straight_acceleration=700,
-    turn_rate=300,
-    turn_acceleration=300
-)
+        straight_speed=500,
+        straight_acceleration=700,
+        turn_rate=300,
+        turn_acceleration=300
+    )
 
 def run_1():
     straight(410)
     turn(27)
     straight(240)
-    turn(-71)
-    straight(220)
+    turn(-70)
+    straight(210)
 
     #schlaufe hoch heben
-    rot2(-80)
-    straight(-175)
+    rot2(-68)
+    straight(-160)
     turn(-45)
-    straight(62)
 
     #links rechts schieben
-    rot1(160)
-    rot1(-330)
+    straight(35)
+    rot1(-170)
+    rot1(300)
 
     #zurück fahren für roten stiehl raus ziehen
-    straight(-100)
+    straight(-100) 
 
-    #scheibeteil zur seite
-    rot1(-80)
-    
     #arm runter für roten stiehl
-    rot1(300)
-    rot2(63)
+    rot2(80)
 
     #vor zu fahren zu rotem stiehl
     straight(120)
-    rot2(-65)
+    rot2(-70)
+    
+    #zurück fahren
+    straight(-120)
+    turn(-80)
+    straight(500)
 
-    rot1(-130)
 
+    raise SystemExit
+
+def run_2():
+    #fahren zu schiff
+    straight(310)
+
+    #runter ziehen
+    rot2(200)
+    straight(-90)
+    rot2(-200)
+    straight(-60)
+
+    #schiff hochschieben
+    turn(-30)
+    straight(200)
+    turn(30)
+    straight(200)
+
+    #fahren zu katapult
+    straight(-40)
+    turn(-50)
+    straight(440)
+    turn(50)
+    straight(20)
+
+    #mast runterdrücken
+    rot1(-140)
+    rot1(140)
+
+    #karren rausziehen
+    turn(60)
+    straight(100)
+    turn(160)
+    straight(-310)
+    rot2(220)
+    turn(-50)
+
+    #
+    straight(-600)
+    turn(-80)
+    stop()
+
+
+  
+
+def power():
+    print(hub.battery.current())
 
 def main():
     menu = ["A", "B", "C"]
@@ -138,10 +186,11 @@ def main():
             run_1()
 
         elif selected == "B":
-            pass
+            run_2()
 
         elif selected == "C":
-            pass
+            print(version)
+            
         
         else:
             pass
@@ -151,3 +200,6 @@ def main():
         menu = menu[next_index:] + menu[:next_index]
 
 main()
+
+print(hub.battery.voltage())
+print(hub.battery.current())
