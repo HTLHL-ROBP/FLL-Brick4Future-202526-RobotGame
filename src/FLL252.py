@@ -104,24 +104,40 @@ def test():
     turn(110)
     rot1(-120)
     straight(70)
-    #boden aufstellen
-    turn(-90)
-    straight(25)
-    turn(20)
-    rot1(120)
-    # Steine rausschieben
-    turn(-100)
-    straight(-410)
-    turn(78)
-    rot1(-130)
-    straight(120)
+    
+    turn(-40)
+    rot1(-10)
+    turn(-50)
     rot1(130)
+    # Steine rausschieben
+    turn(-83)
+    straight(-330)
+    straight(100)
+    wait(500)
+    straight(-170)
+    turn(85)
+    straight(120)
+    turn(-20)
+    straight(20)
+    rot1(-130)
+    turn(10)
+    rot1(130)
+    straight(-150)
+    turn(15)
+    straight(-100)
+    
+    
+    #turn(78)
+    #straight(140)
+    #rot1(-130)
+    #turn(10)
+    #rot1(130)
     #zurueck fahren
-    straight(-110)
-    turn(-75)
-    straight(400)
-    turn(-100)
-    straight(700)
+    #straight(-110)
+    #turn(-75)
+    #straight(400)
+   # turn(-100)
+    #straight(700)
 
 def test1():
     straight(305)
@@ -143,4 +159,4 @@ def main():
     menu = ["A", "B", "C","1","2","3","4","5"]
 
     
-test2()
+test()
