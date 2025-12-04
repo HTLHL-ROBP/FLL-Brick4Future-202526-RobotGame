@@ -90,27 +90,50 @@ init()
 speed(500,700,300,300)
 
 def test():
-    straight(410)
-    turn(27)
-    straight(240)
-    turn(-71)
-    straight(220)
-    rot2(-80)
-    straight(-175)
-    turn(-45)
-    straight(62)
-    rot1(160)
-    rot1(-330)
-    
-    straight(-100)
-    turn(10)
-    rot1(300)
-    rot2(63)
-    straight(120)
-    rot2(-65)
-
-
+    straight(420)
+    #schlag damit Zahnräder fliegen
+    rotspeed2(120)
+    rotspeed2(-120)
+    rotspeed2(120)
+    rotspeed2(-120)
+    rotspeed2(120)
+    rotspeed2(-120)
+    #Steine rollen lassen
+    turn(-30)
+    straight(300)
+    turn(110)
+    rot1(-120)
+    straight(70)
+    #boden aufstellen
+    turn(-90)
+    straight(25)
+    turn(20)
+    rot1(120)
+    # Steine rausschieben
+    turn(-100)
+    straight(-410)
+    turn(78)
     rot1(-130)
+    straight(120)
+    rot1(130)
+    #zurueck fahren
+    straight(-110)
+    turn(-75)
+    straight(400)
+    turn(-100)
+    straight(700)
+
+def test1():
+    straight(305)
+    turn(-45)
+    straight(250)
+    turn(-40)
+
+def test2():
+    straight(-200)   
+        
+
+
 
 
 
@@ -119,32 +142,5 @@ def test():
 def main():
     menu = ["A", "B", "C","1","2","3","4","5"]
 
-    while True:
-    # Make a menu to choose a letter. You can also use numbers.
-        selected = hub_menu(*menu)
-
-    # Based on the selection, run a program.
-        if selected == "A":
-            test()
-        elif selected == "B":
-            pass
-        elif selected == "C":
-            pass
-        elif selected == "1":
-            pass
-        elif selected == "2":
-            pass
-        elif selected == "3":
-            pass
-        elif selected == "4":
-            pass
-        elif selected == "5":
-            pass
-        else:
-            pass
-
-        # advance menu
-        next_index = (menu.index(selected) + 1) % len(menu)
-        menu = menu[next_index:] + menu[:next_index]
-
-main()
+    
+test2()
