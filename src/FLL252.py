@@ -140,13 +140,49 @@ def test():
     #straight(700)
 
 def test1():
-    straight(305)
+    #umlegen
+    straight(170)
     turn(-45)
-    straight(250)
+    straight(300)
     turn(-40)
+    #
+    straight(-150)
+    turn(45)
+    straight(300)
+    rot2(80)
+    straight(130)
+    rot2(-80)
+
+    turn(-30)
+    straight(300)
+    turn(30)
+    straight(-800)
+    straight(300)
+    turn(-43)
+    rot1(-150)
+    straight(250)
+    rot1(75)
+    wait(3000)
+    straight(-100)
+
+
+
+    Stop()
+
 
 def test2():
-    straight(-200)   
+    straight(-200)
+
+def test3():
+    straight(300)
+    turn(-90)
+    straight(700)
+    turn(-90)
+    straight(110)
+    turn(-65)
+    straight(50)
+    rot2(1200)
+    stop()   
         
 
 
@@ -158,5 +194,26 @@ def test2():
 def main():
     menu = ["A", "B", "C","1","2","3","4","5"]
 
-    
-test()
+    while True:
+        # make a menu to choose a letter. You can also use numbers.
+        selected = hub_menu(*menu)
+
+        # based on the selection, run a program.
+        if selected == "A":
+            test1()
+
+        elif selected == "B":
+            test3()
+
+        elif selected == "C":
+            print(version)
+            
+        
+        else:
+            pass
+
+        # advance menu
+        next_index = (menu.index(selected) + 1) % len(menu)
+        menu = menu[next_index:] + menu[:next_index]
+ 
+main()
