@@ -145,29 +145,36 @@ def test1():
     turn(-45)
     straight(300)
     turn(-40)
-    #
+    #aufheben Lore
     straight(-150)
-    turn(45)
+    turn(42)
     straight(300)
     rot2(80)
-    straight(130)
+    straight(140)
     rot2(-80)
-
+    #aufstellen aufdrücken
     turn(-30)
-    straight(300)
+    straight(285)
     turn(30)
     straight(-800)
     straight(300)
+    #Lore rüberfahren
     turn(-43)
     rot1(-150)
     straight(250)
     rot1(75)
-    wait(3000)
+    wait(2000)
     straight(-100)
-
-
-
-    Stop()
+    rot1(75)
+    
+    #zrück fahren
+    straight(-200)
+    turn(25)
+    straight(-500)
+    turn(50)
+    straight(-580)
+    
+    stop()
 
 
 def test2():
