@@ -94,48 +94,54 @@ speed(
     )
 
 def run_1():
-    straight(410)
-    turn(27)
-    straight(240)
-    turn(-70)
-    straight(210)
+    straight(600)
+    turn(50)
+    straight(65)
+    speed(straight_speed=500,straight_acceleration=700,turn_rate=300,turn_acceleration=100)
+    turn(-85)
+    straight(140)
+    speed(straight_speed=500,straight_acceleration=700,turn_rate=300,turn_acceleration=300)
 
     #schlaufe hoch heben
     rot2(-68)
-    straight(-160)
-    turn(-45)
+    straight(-150)
+    turn(-50)
 
-    #links rechts schieben
-    straight(35)
-    rot1(-170)
-    rot1(300)
 
     #zurück fahren für roten stiehl raus ziehen
-    straight(-100) 
-
+    straight(-50)
     #arm runter für roten stiehl
     rot2(80)
 
     #vor zu fahren zu rotem stiehl
-    straight(120)
+    straight(90)
     rot2(-70)
     
     #zurück fahren
     straight(-120)
     turn(-80)
     straight(500)
+    
+    Stop()
 
-
-    raise SystemExit
 
 def run_2():
+    straight(200)
+    turn(45)
+    straight(360)
+    straight(-360)
+    turn(-45)
+    straight(-160)
+    stop()
+
+def run_3():
     #fahren zu schiff
-    straight(310)
+    straight(320)
 
     #runter ziehen
-    rot2(200)
+    rot2(180)
     straight(-90)
-    rot2(-200)
+    rot2(-180)
     straight(-60)
 
     #schiff hochschieben
@@ -149,33 +155,131 @@ def run_2():
     turn(-50)
     straight(440)
     turn(50)
-    straight(20)
+    straight(30)
 
     #mast runterdrücken
+    straight(20)
     rot1(-140)
     rot1(140)
 
     #karren rausziehen
-    turn(60)
-    straight(100)
-    turn(160)
-    straight(-310)
-    rot2(220)
-    turn(-50)
+    straight(-40)
+    turn(70)
+    straight(300)
+    turn(-160)
+    straight(12.5)
+    rot2(200)
+    straight(-100)
+    turn(90)
+    straight(600)
+    Stop()
 
-    #
-    straight(-600)
-    turn(-80)
+def test():
+    straight(420)
+    #schlag damit Zahnräder fliegen
+    rotspeed2(120)
+    rotspeed2(-120)
+    rotspeed2(120)
+    rotspeed2(-120)
+    rotspeed2(120)
+    rotspeed2(-120)
+    #Steine rollen lassen
+    turn(-30)
+    straight(300)
+    turn(110)
+    rot1(-120)
+    straight(70)
+    
+    turn(-40)
+    rot1(-10)
+    turn(-50)
+    rot1(130)
+    # Steine rausschieben
+    turn(-83)
+    straight(-330)
+    straight(100)
+    wait(500)
+    straight(-170)
+    turn(85)
+    straight(120)
+    turn(-20)
+    straight(20)
+    rot1(-130)
+    turn(10)
+    rot1(130)
+    straight(-150)
+    turn(15)
+    straight(-100)
+    
+    
+    #turn(78)
+    #straight(140)
+    #rot1(-130)
+    #turn(10)
+    #rot1(130)
+    #zurueck fahren
+    #straight(-110)
+    #turn(-75)
+    #straight(400)
+   # turn(-100)
+    #straight(700)
+
+def test1():
+    #umlegen
+    straight(170)
+    turn(-45)
+    straight(300)
+    turn(-40)
+    #aufheben Lore
+    straight(-150)
+    turn(42)
+    straight(300)
+    rot2(80)
+    straight(140)
+    rot2(-80)
+    #aufstellen aufdrücken
+    turn(-30)
+    straight(285)
+    turn(30)
+    straight(-800)
+    straight(300)
+    #Lore rüberfahren
+    turn(-43)
+    rot1(-150)
+    straight(250)
+    rot1(75)
+    wait(2000)
+    straight(-100)
+    rot1(75)
+    
+    #zrück fahren
+    straight(-200)
+    turn(25)
+    straight(-500)
+    turn(50)
+    straight(-580)
+    
     stop()
 
 
+def test3():
+    straight(300)
+    turn(-90)
+    straight(700)
+    turn(-90)
+    straight(110)
+    turn(-65)
+    straight(50)
+    rot2(1200)
+    stop()   
+        
   
 
 def power():
     print(hub.battery.current())
 
 def main():
-    menu = ["A", "B", "C"]
+    menu = ["A", "B", "C","1","2","3"]
 
     while True:
         # make a menu to choose a letter. You can also use numbers.
@@ -184,14 +288,17 @@ def main():
         # based on the selection, run a program.
         if selected == "A":
             run_1()
-
         elif selected == "B":
             run_2()
 
         elif selected == "C":
-            print(version)
-            
-        
+            run_3()
+        elif selected == "1":
+            test()
+        elif selected == "2":
+            test1()
+        elif selected == "3":
+            test3()
         else:
             pass
 
