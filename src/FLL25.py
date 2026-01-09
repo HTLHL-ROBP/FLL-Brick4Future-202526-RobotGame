@@ -85,6 +85,11 @@ def rot1stalled(speed, duty_limit = 40):
 def rot2stalled(speed, duty_limit = 40):
     arm2.run_until_stalled(speed, duty_limit=duty_limit)
 
+def stop():
+    robot.stop()
+    arm1.stop()
+    arm2.stop()
+
 init()
 speed(
         straight_speed=500,
@@ -122,16 +127,15 @@ def run_1():
     turn(-80)
     straight(500)
     
-    Stop()
+    stop()
 
 
 def run_2():
     straight(200)
-    turn(45)
-    straight(360)
-    straight(-360)
-    turn(-45)
-    straight(-160)
+    turn(38)
+    straight(320)
+    straight(-500)
+    
     stop()
 
 def run_3():
@@ -172,7 +176,8 @@ def run_3():
     straight(-100)
     turn(90)
     straight(600)
-    Stop()
+
+    stop()
 
 def test():
     straight(420)
@@ -205,10 +210,11 @@ def test():
     turn(-20)
     straight(20)
     rot1(-130)
-    turn(10)
+    turn(20)
     rot1(130)
+    turn(-10)
     straight(-150)
-    turn(15)
+    turn(5)
     straight(-100)
     
     
@@ -224,6 +230,8 @@ def test():
    # turn(-100)
     #straight(700)
 
+    stop()
+
 def test1():
     #umlegen
     straight(170)
@@ -232,11 +240,11 @@ def test1():
     turn(-40)
     #aufheben Lore
     straight(-150)
-    turn(42)
+    turn(44)
     straight(300)
-    rot2(80)
+    rot2(79)
     straight(140)
-    rot2(-80)
+    rot2(-79)
     #aufstellen aufdrücken
     turn(-30)
     straight(285)
@@ -255,8 +263,8 @@ def test1():
     #zrück fahren
     straight(-200)
     turn(25)
-    straight(-500)
-    turn(50)
+    straight(-600)
+    turn(40)
     straight(-580)
     
     stop()
@@ -265,13 +273,26 @@ def test1():
 def test3():
     straight(300)
     turn(-90)
-    straight(700)
+    straight(650)
     turn(-90)
     straight(110)
     turn(-65)
     straight(50)
     rot2(1200)
-    stop()   
+
+    stop()
+
+def test4():
+    straight(600)
+    turn(-60)
+    straight(650)
+    turn(-50)
+    straight(480)
+    turn(-50)
+    straight(100)
+    straight(-100)
+    stop()
+
         
   
 
@@ -298,7 +319,7 @@ def main():
         elif selected == "2":
             test1()
         elif selected == "3":
-            test3()
+            test4()
         else:
             pass
 
