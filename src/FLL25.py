@@ -289,8 +289,10 @@ def test4():
     turn(-50)
     straight(480)
     turn(-50)
-    straight(100)
-    straight(-100)
+    straight(80)
+    rot1(-400)
+    rot2(400)
+    straight(-200)
     stop()
 
         
