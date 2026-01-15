@@ -174,7 +174,7 @@ def run_3():
     straight(12.5)
     rot2(200)
     straight(-100)
-    turn(90)
+    turn(80)
     straight(600)
 
     stop()
@@ -244,7 +244,12 @@ def test1():
     straight(300)
     rot2(79)
     straight(140)
+    #vor und zurück auf anpassung des pielfeldes bei der lore
+    straight(20)
     rot2(-79)
+    #ändern wie der wert oben
+    straight(-20)
+
     #aufstellen aufdrücken
     turn(-30)
     straight(285)
