@@ -175,7 +175,9 @@ def run_3():
     rot2(200)
     straight(-100)
     turn(80)
-    straight(600)
+    straight(200)
+    turn(25)
+    straight(500)
 
     stop()
 
@@ -260,10 +262,10 @@ def test1():
     turn(-43)
     rot1(-150)
     straight(250)
-    rot1(75)
+    rot1(100)
     wait(2000)
     straight(-100)
-    rot1(75)
+    rot1(50)
     
     #zrück fahren
     straight(-200)
