@@ -138,9 +138,56 @@ def run_2():
     
     stop()
 
+def run_3_new():
+     #fahren zu schiff
+    straight(340)
+
+    #runter ziehen
+    rot2(180)
+    straight(-90)
+    rot2(-180)
+    straight(-60)
+
+    #schiff hochschieben
+    turn(-30)
+    straight(200)
+    turn(30)
+    straight(200)
+
+    #skellet hochheben
+    straight(-40)
+    turn(-50)
+    straight(200)
+    turn(-45)
+    straight(-100)
+    rot1(-140)
+    turn(-2.5)
+    straight(100)
+    rot1(140)
+
+    #fahren zu korb
+    turn(55)
+    straight(200)
+    turn(20)
+    straight(25)
+    rot1(-150)
+    rot1(150)
+
+    #dings rausziehen
+    straight(-100)
+    turn(90)
+    straight(100)
+    turn(-45)
+    straight(300)
+    turn(-108)
+    straight(60)
+    straight(-170)
+    turn(85)
+    straight(500)
+
 def run_3():
     #fahren zu schiff
-    straight(320)
+    straight(360)
 
     #runter ziehen
     rot2(180)
@@ -302,8 +349,6 @@ def test4():
     straight(-200)
     stop()
 
-        
-  
 
 def power():
     print(hub.battery.current())
@@ -320,9 +365,8 @@ def main():
             run_1()
         elif selected == "B":
             run_2()
-
         elif selected == "C":
-            run_3()
+            run_3_new()
         elif selected == "1":
             test()
         elif selected == "2":
