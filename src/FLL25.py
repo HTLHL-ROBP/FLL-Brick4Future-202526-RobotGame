@@ -349,6 +349,23 @@ def test4():
     straight(-200)
     stop()
 
+def test4new():
+    straight(300)
+    turn(-25)
+    straight(490)
+    turn(-45)
+    straight(200)
+    turn(10)
+    straight(50)
+    straight(-120)
+    turn(-28)
+    straight(650)
+    turn(-60)
+    rot1(-150)
+    rot2(150)
+    straight(-100)
+    stop()
+
 
 def power():
     print(hub.battery.current())
@@ -372,7 +389,7 @@ def main():
         elif selected == "2":
             test1()
         elif selected == "3":
-            test4()
+            test4new()
         else:
             pass
 
