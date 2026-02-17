@@ -116,11 +116,10 @@ def run_1():
     #zurück fahren für roten stiehl raus ziehen
     straight(-50)
     #arm runter für roten stiehl
-    rot2(80)
 
     #vor zu fahren zu rotem stiehl
     straight(90)
-    rot2(-70)
+    rot1(70)
     
     #zurück fahren
     straight(-120)
@@ -184,6 +183,8 @@ def run_3_new():
     straight(-170)
     turn(85)
     straight(500)
+    stop()
+
 
 def run_3():
     #fahren zu schiff
@@ -355,15 +356,19 @@ def test4new():
     straight(490)
     turn(-45)
     straight(200)
-    turn(10)
-    straight(50)
-    straight(-120)
-    turn(-28)
+    turn(15)
+    straight(80)
+    straight(-150)
+    turn(-35)
     straight(650)
     turn(-60)
-    rot1(-150)
-    rot2(150)
-    straight(-100)
+    straight(50)
+    rot1(-400)
+    rot2(200)
+    straight(-130)
+    turn(35)
+    # Kante, straight genau auf Tisch anpassen
+    straight(280)
     stop()
 
 
