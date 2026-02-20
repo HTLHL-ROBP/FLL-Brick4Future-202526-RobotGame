@@ -110,14 +110,15 @@ def run_1():
     #schlaufe hoch heben
     rot2(-68)
     straight(-150)
+    rot1(70)
     turn(-50)
-
 
     #zurück fahren für roten stiehl raus ziehen
     straight(-50)
     #arm runter für roten stiehl
 
     #vor zu fahren zu rotem stiehl
+    rot1(-70)
     straight(90)
     rot1(70)
     
@@ -303,9 +304,9 @@ def test1():
     #aufstellen aufdrücken
     turn(-30)
     straight(285)
-    turn(30)
+    turn(27)
     straight(-800)
-    straight(300)
+    straight(330)
     #Lore rüberfahren
     turn(-43)
     rot1(-150)
